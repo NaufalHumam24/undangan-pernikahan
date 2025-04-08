@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      transition: all 0.5s ease;
+    }
+  
+    .font-cursive {
+      font-family: 'Sacramento', cursive;
+    }
+  
+    .font-arabic {
+      font-family: 'Noto Naskh Arabic', serif;
+    }
+  
+    html {
+      scroll-behavior: smooth;
+    }
+  
+    .slider-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      filter: brightness(0.4);
+    }
+
+    .slider-image.active {
+      opacity: 1;
+    }
+  </style>  
+</head>
+<body class="m-0 p-0 bg-black">
+
+  <!-- Musik autoplay -->
+  <audio id="bg-music" autoplay loop hidden>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <!-- Splash Screen -->
+  <div id="splash" class="fixed inset-0 bg-black text-white flex flex-col items-center justify-center z-50 transition-opacity duration-500">
+    <h2 class="text-3xl md:text-4xl font-cursive mb-2">The Wedding Of</h2>
+    <img src="image/pasangan.webp" alt="Pasangan" class="rounded-full w-48 h-48 object-cover border-2 border-white mx-auto my-4" />
+    <h1 class="text-3xl md:text-4xl font-cursive mb-8">Imam & Silvia</h1>
+    <p class="text-base md:text-lg">Kepada Yth,</p>
+    <p class="text-base md:text-lg mb-6">Bapak/Ibu/Saudara/i</p>
+    <button onclick="openInvitation()" class="text-base md:text-lg bg-white text-black px-6 py-2 rounded-full shadow hover:bg-gray-200 transition">
+      <div class="flex items-center gap-2">
+        <i data-lucide="mail" class="w-4 h-4 md:w-5 md:h-5"></i>
+        <span>Open Invitation</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" class="hidden">
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center px-4 py-20 scroll-mt-24 overflow-hidden bg-black">
+
+      <!-- Background slider -->
+      <div class="absolute inset-0 z-0">
+        <img src="image/back_1.png" class="slider-image active" />
+        <img src="image/back_2.jpg" class="slider-image" />
+        <img src="image/back_3.jpg" class="slider-image" />
+      </div>
+    
+      <!-- Konten undangan -->
+      <div class="relative z-10 text-center text-white">
+        <h1 class="text-3xl md:text-4xl font-cursive bg-black/60 inline-block px-4 py-2 rounded mb-4">Undangan Pernikahan</h1>
+        <p class="text-base md:text-lg">Kami mengundang Anda untuk hadir di hari bahagia kami</p>        
+        <img src="image/pasangan.webp" alt="Pasangan" class="rounded-full w-48 h-48 object-cover border-2 border-white mx-auto my-4" />       
+        <h2 class="text-3xl md:text-4xl font-cursive bg-black/60 inline-block px-4 py-2 rounded mt-6">Imam & Silvia</h2>
+        <p class="text-xl md:text-2xl mt-2">Minggu, 12 Mei 2025</p>
+    
+        <!-- Tombol Simpan ke Google Calendar -->
+        <a
+          href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Akad+Pernikahan+Wahyu+%26+Riski&dates=20250512T080000/20250512T100000&details=Undangan+pernikahan+Wahyu+dan+Riski&location=Gedung+Serbaguna&sf=true"
+          target="_blank"
+          class="inline-block mt-6 bg-pink-500 hover:bg-pink-600 text-white text-base md:text-lg font-medium px-6 py-2 rounded-full shadow-md transition duration-300 ease-in-out"
+        >
+          <div class="flex items-center gap-2 justify-center">
+            <i data-lucide="calendar-check" class="w-4 h-4 md:w-5 md:h-5"></i>
+            <span>Save Google Calendar</span>
+          </div>
+        </a>
+      </div>
+    </section>            
+
+    <!-- Couple Section -->
+    <section id="mempelai" class="py-16 px-6 md:px-20 bg-black scroll-mt-24">
+      <div class="text-center mb-12">
+        <p class="text-2xl md:text-3xl font-semibold text-white mb-8" dir="rtl">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        </p>
+        <h2 class="text-2xl md:text-3xl font-cursive text-white mb-6">
+          Assalamualaikum Warahmatullahi Wabarakatuh
+        </h2>
+        <p class="text-base md:text-lg text-white max-w-xl mx-auto">
+          Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami:
+        </p>
+      </div>    
+      <div class="max-w-2xl mx-auto grid md:grid-cols-3 gap-8 items-center text-center">
+        <div>
+          <img src="image/pria.webp" alt="Imam" class="mx-auto rounded-full shadow-lg w-48 h-48 border-2 border-white object-cover">
+          <h3 class="text-2xl md:text-3xl font-cursive text-white mt-4">Imam</h3>
+          <p class="text-base md:text-lg text-white">Putra dari Bpk. A & Ibu B</p>
+        </div>
+        <div class="text-4xl md:text-5xl font-cursive text-white">&</div>
+        <div>
+          <img src="image/wanita.webp" alt="Silvia" class="mx-auto rounded-full shadow-lg w-48 h-48 border-2 border-white object-cover">
+          <h3 class="text-2xl md:text-3xl font-cursive text-white mt-4">Silvia</h3>
+          <p class="text-base md:text-lg text-white">Putri dari Bpk. C & Ibu D</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Ayat dan Doa -->
+    <section class="bg-gray-800 text-white px-6 py-16 text-center font-sans">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-cursive mb-8 text-white">Allah Subhanahu Wa Ta'ala berfirman</h2>
+        <div class="bg-gray-700 rounded-xl p-4 mb-6">
+          <p class="text-base md:text-lg text-white">Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah).</p>
+          <p class="text-base md:text-lg font-semibold text-white underline mt-2">QS. Adh-Dhariyat: 49</p>
+        </div>
+        <div class="bg-gray-700 rounded-xl p-4">
+          <p class="text-base md:text-lg text-white">dan sesungguhnya Dialah yang menciptakan pasangan laki-laki dan perempuan,</p>
+          <p class="text-base md:text-lg font-semibold text-white underline mt-2">QS. An-Najm: 45</p>
+        </div>
+      </div>    
+    </section>
+
+    <!-- Countdown -->
+    <section id="tanggal" class="bg-gray-800 text-white py-16 px-6 md:px-20 text-center scroll-mt-24">
+      <h2 class="text-3xl font-cursive mb-8">Moment Bahagia</h2>
+      <div class="flex justify-center mb-6">
+        <div class="flex flex-wrap px-6 py-3 border border-white rounded-full text-lg font-semibold">
+          <div class="px-4"><span id="days">--</span> Hari</div>
+          <div class="px-4"><span id="hours">--</span> Jam</div>
+          <div class="px-4"><span id="minutes">--</span> Menit</div>
+          <div class="px-4"><span id="seconds">--</span> Detik</div>
+        </div>
+      </div>
+      <p class="max-w-2xl mx-auto">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah kami akan menyelenggarakan acara pernikahan kami pada:</p>
+    </section>
+
+    <!-- Acara Section -->
+    <section class="bg-black py-16 px-6 md:px-20 text-center">
+      <div class="text-center">
+        <h3 class="text-3xl font-cursive text-white mb-2">Akad Nikah</h3>
+        <p class="text-base md:text-lg text-white mb-20">Pukul 09:00 WIB - Selesai</p>
+        <h3 class="text-3xl font-cursive text-white mb-2">Resepsi</h3>
+        <p class="text-base md:text-lg text-white">Pukul 11:00 WIB - Selesai</p>
+      </div>
+    </section>
+
+    <!-- Lokasi Maps Section -->
+    <section class="bg-black py-16 px-6 md:px-20 text-center">
+      <h2 class="text-3xl font-cursive text-white mb-8">Lokasi Acara</h2>
+      <p class="text-lg mb-6 text-white">Gedung Serbaguna Melati, Jakarta</p>
+      
+      <div class="max-w-2xl mx-auto bg-black p-6 rounded-2xl shadow-lg">
+        <div class="flex justify-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5687562628923!2d106.82715381541757!3d-6.175392695528387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3ef00f9ea27%3A0xabc3e5d47c2e2ee6!2sGedung%20Serbaguna%20Melati!5e0!3m2!1sen!2sid!4v1648543023434!5m2!1sen!2sid"
+            width="100%" height="350" style="border:0; border-radius: 1rem;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+    
+        <a 
+          href="https://www.google.com/maps/place/Gedung+Serbaguna+Melati/" target="_blank"
+          class="inline-block mt-6 bg-pink-500 hover:bg-pink-600 text-white font-medium px-6 py-2 rounded-full shadow-md transition duration-300"
+        >
+          <div class="flex items-center justify-center gap-2">
+            <i data-lucide="map-pinned" class="w-5 h-5"></i>
+            <span>Lihat Google Maps</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+
+    <!-- Galeri Foto -->
+    <section id="galeri" class="bg-black py-16 px-6 md:px-20 text-center text-white scroll-mt-24">
+      <div class="max-w-2xl mx-auto bg-black p-6 rounded-2xl border border-gray-400">
+        <h2 class="text-3xl font-cursive text-white mb-10">Galeri</h2>
+        <div class="relative rounded-2xl overflow-hidden mb-8">
+          <img id="gallery-top" src="image/galeri_1.webp" class="w-full h-64 object-cover transition duration-500 rounded-2xl">
+          <button onclick="prevSlide('top')" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl">&#10094;</button>
+          <button onclick="nextSlide('top')" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl">&#10095;</button>
+        </div>
+        <div class="relative rounded-2xl overflow-hidden">
+          <img id="gallery-bottom" src="image/back_1.png" class="w-full h-64 object-cover transition duration-500 rounded-2xl">
+          <button onclick="prevSlide('bottom')" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl">&#10094;</button>
+          <button onclick="nextSlide('bottom')" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Love Gift Section -->
+    <section class="bg-gray-800 px-6 py-16 text-white">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-center text-3xl font-cursive text-white mb-8">Love Gift</h2>
+        <p class="text-center text-lg mb-6">Dengan hormat, bagi Anda yang ingin memberikan tanda kasih kepada kami, dapat melalui:</p>
+        <div class="bg-gray-700 p-6 rounded-2xl mb-6 flex flex-col gap-2 shadow-md">
+          <div class="flex items-center justify-between">
+            <img src="image/bank_1.webp" alt="Logo BCA" class="h-10">
+            <button onclick="copyToClipboard('456712345678')" class="bg-gray-800 hover:bg-gray-700 text-white text-sm px-4 py-2 rounded-full flex items-center gap-2">
+              <i data-lucide="copy" class="w-5 h-5"></i> Copy
+            </button>
+          </div>
+          <p class="text-lg tracking-widest">---- ---- ---- 4567</p>
+          <p class="text-white font-medium">Imam</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-2xl flex flex-col gap-2 shadow-md">
+          <div class="flex items-center justify-between">
+            <img src="image/bank_2.webp" alt="Logo BNI" class="h-10">
+            <button onclick="copyToClipboard('456798765432')" class="bg-gray-800 hover:bg-gray-700 text-white text-sm px-4 py-2 rounded-full flex items-center gap-2">
+              <i data-lucide="copy" class="w-5 h-5"></i> Copy
+            </button>
+          </div>
+          <p class="text-lg tracking-widest">---- ---- ---- 4567</p>
+          <p class="text-white font-medium">Silvia</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Ucapan & Doa Section -->
+    <section id="ucapan" class="bg-gray-800 px-6 py-16 text-white scroll-mt-24">
+      <div class="max-w-2xl mx-auto bg-gray-800 p-6 rounded-2xl border border-gray-400">
+        <h2 class="text-center text-3xl font-cursive text-white mb-8">Ucapan & Doa</h2>    
+        
+        <form class="space-y-6">
+          <div>
+            <div class="flex items-center gap-2 mb-1 text-white">
+              <i data-lucide="user" class="w-5 h-5"></i>
+              <span class="text-base">Nama</span>
+            </div>
+            <input 
+              type="text" 
+              placeholder="Nama Lengkap" 
+              class="w-full py-3 px-4 rounded-xl bg-gray-800 text-white border border-gray-400" 
+            />
+          </div>
+          
+          <div>
+            <div class="flex items-center gap-2 mb-1 text-white">
+              <i data-lucide="user-check" class="w-5 h-5"></i>
+              <span class="text-base">Kehadiran</span>
+            </div>
+            <select 
+              class="w-full py-3 px-4 rounded-xl bg-gray-800 text-white border border-gray-400"
+              required
+            >
+              <option value="" disabled selected hidden>Konfirmasi Kehadiran</option>
+              <option>Hadir</option>
+              <option>Tidak Hadir</option>
+            </select>
+          </div>
+          
+          <div>
+            <div class="flex items-center gap-2 mb-1 text-white">
+              <i data-lucide="message-square" class="w-5 h-5"></i>
+              <span class="text-base">Ucapan & Doa</span>
+            </div>
+            <textarea 
+              placeholder="Tulis Ucapan dan Doa" 
+              rows="4" 
+              class="w-full py-3 px-4 rounded-xl bg-gray-800 text-white border border-gray-400"
+            ></textarea>
+          </div>
+    
+          <button 
+            type="submit" 
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <i data-lucide="send" class="w-5 h-5"></i> Send
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Section Penutup -->
+    <section class="bg-black py-12 px-4">
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-base md:text-lg text-white mb-6">
+          Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.
+        </p>       
+        <h2 class="text-2xl md:text-3xl font-cursive text-white mb-8">
+          Wassalamualaikum Warahmatullahi Wabarakatuh
+        </h2>   
+        <p class="text-2xl md:text-3xl font-semibold text-white" dir="rtl">
+          ٱلْـحَمْدُ لِلَّٰهِ رَبِّ ٱلْعَٰلَمِينَ
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-center py-6 text-sm text-white border-t border-gray-400 pb-20">
+      <p class="font-medium mb-4">Build by Naufal Humam</p>   
+      <div class="flex justify-center gap-6 text-gray">
+        <a href="https://github.com/NaufalHumam24" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
+          <i data-lucide="github" class="w-5 h-5"></i> GitHub
+        </a>
+        <a href="https://wa.me/6285732329710" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
+          <i data-lucide="phone" class="w-5 h-5"></i> WhatsApp
+        </a>
+        <a href="https://instagram.com/_nhm.24/" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition">
+          <i data-lucide="instagram" class="w-5 h-5"></i> Instagram
+        </a>
+      </div>
+    </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 inset-x-0 bg-gray-800 border-t border-gray-400 z-50">
+      <div class="max-w-2xl mx-auto flex justify-between px-4 py-2 text-sm text-center">
+        <a href="#home" class="nav-item flex-1 flex flex-col items-center gap-1 text-gray-400 hover:text-white">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="#mempelai" class="nav-item flex-1 flex flex-col items-center gap-1 text-gray-400 hover:text-white">
+          <i data-lucide="users" class="w-5 h-5"></i>
+          <span>Mempelai</span>
+        </a>
+        <a href="#tanggal" class="nav-item flex-1 flex flex-col items-center gap-1 text-gray-400 hover:text-white">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Tanggal</span>
+        </a>
+        <a href="#galeri" class="nav-item flex-1 flex flex-col items-center gap-1 text-gray-400 hover:text-white">
+          <i data-lucide="images" class="w-5 h-5"></i>
+          <span>Galeri</span>
+        </a>
+        <a href="#ucapan" class="nav-item flex-1 flex flex-col items-center gap-1 text-gray-400 hover:text-white">
+          <i data-lucide="messages-square" class="w-5 h-5"></i>
+          <span>Ucapan</span>
+        </a>
+      </div>
+    </nav>                
+  </div>
+
+  <!-- Script -->
+  <script>
+    function openInvitation() {
+      const splash = document.getElementById('splash');
+      const main = document.getElementById('mainContent');
+      splash.classList.add('opacity-0');
+      setTimeout(() => {
+        splash.classList.add('hidden');
+        main.classList.remove('hidden');
+
+        const music = document.getElementById('bg-music');
+        if (music) music.play().catch(e => console.log('Autoplay gagal:', e));
+      }, 500);
+    }
+  </script>
+
+  <script>
+    const images = document.querySelectorAll('.slider-image');
+    let index = 0;
+
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 5000);
+  </script>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("May 12, 2025 09:00:00").getTime();
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = d;
+      document.getElementById("hours").innerText = h;
+      document.getElementById("minutes").innerText = m;
+      document.getElementById("seconds").innerText = s;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <script>
+    const topImages = ["image/galeri_1.webp", "image/galeri_2.jpg", "image/galeri_3.jpg"];
+    const bottomImages = ["image/back_1.png", "image/back_2.jpg", "image/back_3.jpg"];
+  
+    let currentTop = 0;
+    let currentBottom = 0;
+  
+    function updateGallery(position) {
+      if (position === 'top') {
+        document.getElementById('gallery-top').src = topImages[currentTop];
+      } else {
+        document.getElementById('gallery-bottom').src = bottomImages[currentBottom];
+      }
+    }
+  
+    function nextSlide(position) {
+      if (position === 'top') {
+        currentTop = (currentTop + 1) % topImages.length;
+      } else {
+        currentBottom = (currentBottom + 1) % bottomImages.length;
+      }
+      updateGallery(position);
+    }
+  
+    function prevSlide(position) {
+      if (position === 'top') {
+        currentTop = (currentTop - 1 + topImages.length) % topImages.length;
+      } else {
+        currentBottom = (currentBottom - 1 + bottomImages.length) % bottomImages.length;
+      }
+      updateGallery(position);
+    }
+  
+    setInterval(() => {
+      nextSlide('top');
+      nextSlide('bottom');
+    }, 5000);
+  </script>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor rekening berhasil disalin!");
+      }, (err) => {
+        console.error('Gagal menyalin:', err);
+      });
+    }
+  </script>
+
+  <script>
+    const navItems = document.querySelectorAll('.nav-item');
+  
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(el => el.classList.remove('text-white'));
+        item.classList.add('text-white');
+      });
+    });
+  </script>
+  
+  <script>
+    lucide.createIcons();
+  </script>  
+  
+
+</body>
+</html>
